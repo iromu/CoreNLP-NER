@@ -31,7 +31,9 @@ public class TrainTest {
                 {"My name is Ivan", "0,0,0,NAME"},
                 {"My name is Joe", "0,0,0,NAME"},
                 {"My name is Paul", "0,0,0,NAME"},
-                {"My name is Paula", "0,0,0,NAME"}
+                {"My name is Paula", "0,0,0,NAME"},
+                {"Assign task to Ivan", "ACTION,ENTITY,0,NAME"},
+                {"Assign task to Robert", "ACTION,ENTITY,0,NAME"}
         });
     }
 
