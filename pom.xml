@@ -56,37 +56,36 @@
                 <configuration>
                     <mainClass>io.github.iromu.corenlp.ner.Train</mainClass>
                 </configuration>
-            </plugin><plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <version>3.1.1</version>
-            <executions>
-                <execution>
-                    <id>unpack</id>
-                    <phase>process-resources</phase>
-                    <goals>
-                        <goal>unpack</goal>
-                    </goals>
-                    <configuration>
-                        <artifactItems>
-                            <artifactItem>
-                                <groupId>edu.stanford.nlp</groupId>
-                                <artifactId>stanford-corenlp</artifactId>
-                                <version>3.9.2</version>
-                                <classifier>models</classifier>
-                                <overWrite>false</overWrite>
-                                <outputDirectory>${project.build.directory}/classes</outputDirectory>
-                                <includes>
-                                    edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger,edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml,edu/stanford/nlp/models/sutime/defs.sutime.txt,edu/stanford/nlp/models/sutime/english.sutime.txt,edu/stanford/nlp/models/sutime/english.holidays.sutime.txt,edu/stanford/nlp/models/kbp/english/gazetteers/regexner_caseless.tab,edu/stanford/nlp/models/kbp/english/gazetteers/regexner_cased.tab,edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz
-                                </includes>
-                            </artifactItem>
-                        </artifactItems>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
-
-
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <id>unpack</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>edu.stanford.nlp</groupId>
+                                    <artifactId>stanford-corenlp</artifactId>
+                                    <version>3.9.2</version>
+                                    <classifier>models</classifier>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                    <includes>
+                                        edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger,edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml,edu/stanford/nlp/models/sutime/defs.sutime.txt,edu/stanford/nlp/models/sutime/english.sutime.txt,edu/stanford/nlp/models/sutime/english.holidays.sutime.txt,edu/stanford/nlp/models/kbp/english/gazetteers/regexner_caseless.tab,edu/stanford/nlp/models/kbp/english/gazetteers/regexner_cased.tab,edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz
+                                    </includes>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

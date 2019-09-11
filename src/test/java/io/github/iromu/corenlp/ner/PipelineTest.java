@@ -14,8 +14,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(Parameterized.class)
 public class PipelineTest {
 
-    private String input;
-    private String expected;
+    private final String input;
+    private final String expected;
 
     public PipelineTest(String input, String expected) {
         this.input = input;
@@ -53,9 +53,8 @@ public class PipelineTest {
             System.out.println("The parse of the sentence '" + sent + "' is " + sent.parse());
             System.out.println();
 
-            assertThat(String.join(",",sent.nerTags())).isEqualTo(expected);
+            assertThat(String.join(",", sent.nerTags())).isEqualTo(expected);
         }
     }
-
 
 }

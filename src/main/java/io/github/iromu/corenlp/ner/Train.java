@@ -13,23 +13,23 @@ import java.util.Properties;
  * @author iromu
  */
 public class Train {
-    private String workingFolder;
+    private final String workingFolder;
 
-    public Train(){
+    private Train() {
         workingFolder = Objects.requireNonNull(Train.class.getClassLoader().getResource(".")).getPath();
     }
 
-    public static void main(String... args){
+    public static void main(String... args) {
         new Train().run();
     }
 
     private void run() {
         Properties properties = StringUtils.propFileToProperties(Paths.get(workingFolder, "ner.model.properties").toString());
-        properties.setProperty("trainFileList",Paths.get(workingFolder, "train").toString() );
+        properties.setProperty("trainFileList", Paths.get(workingFolder, "train").toString());
 
         SeqClassifierFlags seqClassifierFlags = new SeqClassifierFlags(properties);
         CRFClassifier<CoreMap> coreMapCRFClassifier = new CRFClassifier<>(seqClassifierFlags);
         coreMapCRFClassifier.train();
-        coreMapCRFClassifier.serializeClassifier(Paths.get(workingFolder, "ner.model.ser.gz").toString() );
+        coreMapCRFClassifier.serializeClassifier(Paths.get(workingFolder, "ner.model.ser.gz").toString());
     }
 }

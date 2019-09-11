@@ -15,10 +15,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(Parameterized.class)
 public class TrainTest {
-    private CRFClassifier crfClassifier = CRFClassifier.getClassifierNoExceptions("ner.model.ser.gz");
-    private String input;
-    private String expected;
-
+    private final CRFClassifier crfClassifier = CRFClassifier.getClassifierNoExceptions("ner.model.ser.gz");
+    private final String input;
+    private final String expected;
 
     public TrainTest(String input, String expected) {
         this.input = input;
@@ -39,6 +38,7 @@ public class TrainTest {
 
     @Test
     public void classify() {
+        @SuppressWarnings("unchecked")
         List<List<CoreLabel>> classify = crfClassifier.classify(input.toLowerCase());
         List<String> labels = new ArrayList<>();
         List<Double> prob = new ArrayList<>();
@@ -51,6 +51,6 @@ public class TrainTest {
         System.out.println(labels.toString());
         System.out.println(prob.toString());
 
-        assertThat(String.join(",",labels)).isEqualTo(expected);
+        assertThat(String.join(",", labels)).isEqualTo(expected);
     }
 }
